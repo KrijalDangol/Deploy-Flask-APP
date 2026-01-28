@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{%block body %}
+
+<form action="/signup" method="post">
+    {%if message%}
+    {{message}}
+    <button type="submit">Try Again?</button>
+    {%else%}
+    <input type="email" name="email" autofocus placeholder="Email"> <br>
+    <input type="password" name="password" placeholder="Password" autocomplete="off"> <br>
+    <input type="password" name="confirm_pass" placeholder="Confirm Password" autocomplete="off"> <br>
+    <button type="submit">Sign Up</button>
+    {%endif%}
+</form>
+
+<!-- {%with messages = get_flashed_message %}
+{% if messages %}
+    {% for msg in messages %}
+    <p> {{msg}}</p>
+    {%endfor%}
+{%endif%}
+{%endwith%} -->
+
+
+{%endblock%}

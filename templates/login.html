@@ -1,0 +1,15 @@
+{%extends "layout.html" %}
+
+{%block body %}
+
+<form action="/login" method="POST">
+    <input type="email" name="email" autofocus autocomplete="on" placeholder="Email">
+    <input type="password" name="password" autocomplete="off" placeholder="Password">
+    <input type="password" name="confirm_pass" autocomplete="off" placeholder="Confirm Password">
+
+        <button type="submit"> Log In </button>
+ 
+</form>
+{{message}}
+
+{%endblock%}

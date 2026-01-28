@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{%block body%}
+
+    <body class="sb-expanded">
+    <header>
+
+    </header>
+    <aside>
+        <nav>
+            <img src="{{url_for('static', filename = 'images/logo.png')}}" alt="Logo goes here" id = "logo">
+            <ul>
+                <li>
+                    <a href="#" id="collapse" class="active" data-resize-btn>
+                        <i class = "bx bx-menu"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class = "bx bx-home-circle"></i>
+                    <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+        <li class="auth">
+        {% if message == "Logged In" %}
+        <a href="/logout">Log Out</a>
+        {% elif message %}
+        <a href="/login">Log In</a>
+        {% else %}
+        <a href="/signup">Sign Up</a>
+        </li>
+        <li class="login">
+        <a href="/login" class="login">Log In</a>
+        {% endif%}
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div class="container">
+                <h1 class="heading">IS IT 80%?</h1>
+            <div class="box">
+            <form action="/store" method="POST">
+                <div class="input">
+                <input type="text" class="input_box" id="present" autocomplete="off"  autofocus placeholder="Present Days"> <br>
+                <input type="text" class="input_box" id="working" autocomplete="off" placeholder="Working Days"> <br>
+                </div>
+                <!-- using hidden inputs-->
+                <input type="hidden" name="present" id="present_hidden">
+                <input type="hidden" name="working" id ="working_hidden">
+                <input type="hidden" name="percentage" id = "percentage_hidden">
+
+                <select name="subjects" class="subjects" required>
+                    <option value="" selected  disabled>Subject</option>
+                    <option value="c">C programming</option>
+                    <option value="iit">IIT</option>
+                    <option value="digital Logic">Digital Logic</option>
+                    <option value="physics">Physics</option>
+                    <option value="maths">Maths</option>
+                </select>
+            </div>
+            <div class="buttons_containner">
+                <button type="button" onclick="result()" id = "find" class="button">Find</button>
+                <button type="submit" onclick="syncdata()" class="button">Save</button>
+            </div>
+            </form>
+        <p id = "message"></p>
+        <p id = "number"></p>
+            <!-- {{message}} -->
+        </div>
+    </main>
+
+<script src="{{url_for('static', filename = 'js/script.js')}}"></script>
+
+{%endblock%}
+
