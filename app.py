@@ -128,6 +128,5 @@ def store():
             conn.close()
         return render_template("index.html", message = "Logged In")
 
-# if __name__ == "__main__":
-#     server = Server(app.wsgi_app)
-#     server.serve (port = 5500, host = '0.0.0.0', debug = True)
+if __name__ == "__main__":
+    app.run(port = 5500, host = '0.0.0.0', debug = True)
